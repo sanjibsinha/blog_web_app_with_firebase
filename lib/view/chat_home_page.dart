@@ -22,6 +22,7 @@ class ChatHomePage extends StatelessWidget {
             'https://cdn.pixabay.com/photo/2018/03/24/00/36/girl-3255402_960_720.png',
             width: 250,
             height: 250,
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 8),
           Consumer<StateOfApplication>(
@@ -36,6 +37,8 @@ class ChatHomePage extends StatelessWidget {
               signOut: appState.signOut,
             ),
           ),
+          const Paragraph(
+              'Hi, I\'m Angel, I\'m Inviting you to write Blogs. Please join me.'),
           const Divider(
             height: 8,
             thickness: 1,
@@ -43,7 +46,7 @@ class ChatHomePage extends StatelessWidget {
             endIndent: 8,
             color: Colors.grey,
           ),
-          const Header("Write your Blog"),
+          const Header('Write your Blog'),
           const Paragraph(
             'Join your friends and write your blog!',
           ),

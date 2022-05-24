@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 /// we need to specify the associated values according to the platform
-/// we're using, like in this case, we have chosen Android platform
+/// we're using, like in this case, we have chosen web platform
 /// in Firebase console
 ///
 class DefaultFirebaseOptions {
