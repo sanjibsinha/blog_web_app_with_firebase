@@ -11,6 +11,7 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Provider Firebase Chatting',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
               highlightColor: Colors.black45,

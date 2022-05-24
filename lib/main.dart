@@ -4,6 +4,8 @@ import 'model/state_of_application.dart';
 
 import 'view/chat_app.dart';
 
+/// moving to first branch
+
 void main() {
   runApp(
     ChangeNotifierProvider(
