@@ -94,7 +94,18 @@ class _LetUsChatState extends State<LetUsChat> {
                 ),
               ),
               for (var message in widget.messages)
-                Paragraph('${message.name}: ${message.title}'),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            BlogPage(messages: widget.messages),
+                      ),
+                    );
+                  },
+                  child: Paragraph('${message.name}: ${message.title}'),
+                ),
             ],
           ),
         ),
@@ -103,3 +114,24 @@ class _LetUsChatState extends State<LetUsChat> {
   }
 } // LetUsChat state ends
 
+class BlogPage extends StatefulWidget {
+  const BlogPage({
+    Key? key,
+    required this.messages,
+  }) : super(key: key);
+  final List<LetUsChatMessage> messages;
+
+  @override
+  State<BlogPage> createState() => _BlogPageState();
+}
+
+class _BlogPageState extends State<BlogPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        for (var message in widget.messages) Text('$message'),
+      ],
+    );
+  }
+}

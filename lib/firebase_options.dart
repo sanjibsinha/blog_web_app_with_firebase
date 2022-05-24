@@ -9,7 +9,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      //return web;
     }
     // ignore: missing_enum_constant_in_switch
     switch (defaultTargetPlatform) {
@@ -25,13 +25,6 @@ class DefaultFirebaseOptions {
       'DefaultFirebaseOptions are not supported for this platform.',
     );
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: "",
-    appId: "",
-    messagingSenderId: "",
-    projectId: "",
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: '',
