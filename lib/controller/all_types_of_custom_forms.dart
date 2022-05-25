@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'all_widgets.dart';
 
 class CutomEmailForm extends StatefulWidget {
-  const CutomEmailForm({required this.callback});
+  const CutomEmailForm({
+    Key? key,
+    required this.callback,
+  }) : super(key: key);
   final void Function(String email) callback;
   @override
-  _CutomEmailFormState createState() => _CutomEmailFormState();
+  State<CutomEmailForm> createState() => _CutomEmailFormState();
 }
 
 class _CutomEmailFormState extends State<CutomEmailForm> {
@@ -77,7 +80,7 @@ class CustomRegistrationForm extends StatefulWidget {
       registerAccount;
   final void Function() cancel;
   @override
-  _CustomRegistrationFormState createState() => _CustomRegistrationFormState();
+  State<CustomRegistrationForm> createState() => _CustomRegistrationFormState();
 }
 
 class _CustomRegistrationFormState extends State<CustomRegistrationForm> {
@@ -188,13 +191,14 @@ class _CustomRegistrationFormState extends State<CustomRegistrationForm> {
 
 class CustomPasswordForm extends StatefulWidget {
   const CustomPasswordForm({
-    required this.login,
+    Key? key,
     required this.email,
-  });
+    required this.login,
+  }) : super(key: key);
   final String email;
   final void Function(String email, String password) login;
   @override
-  _CustomPasswordFormState createState() => _CustomPasswordFormState();
+  State<CustomPasswordForm> createState() => _CustomPasswordFormState();
 }
 
 class _CustomPasswordFormState extends State<CustomPasswordForm> {

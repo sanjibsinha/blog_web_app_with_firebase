@@ -29,7 +29,7 @@ class LetUsChat extends StatefulWidget {
   final List<LetUsChatMessage> messages;
 
   @override
-  _LetUsChatState createState() => _LetUsChatState();
+  State<LetUsChat> createState() => _LetUsChatState();
 }
 
 class _LetUsChatState extends State<LetUsChat> {

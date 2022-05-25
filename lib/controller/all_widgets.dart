@@ -31,7 +31,11 @@ class Paragraph extends StatelessWidget {
 }
 
 class IconAndDetail extends StatelessWidget {
-  const IconAndDetail(this.icon, this.detail);
+  const IconAndDetail(
+    Key? key,
+    this.icon,
+    this.detail,
+  ) : super(key: key);
   final IconData icon;
   final String detail;
 
@@ -52,7 +56,11 @@ class IconAndDetail extends StatelessWidget {
 }
 
 class StyledButton extends StatelessWidget {
-  const StyledButton({required this.child, required this.onPressed});
+  const StyledButton({
+    Key? key,
+    required this.child,
+    required this.onPressed,
+  }) : super(key: key);
   final Widget child;
   final void Function() onPressed;
 
