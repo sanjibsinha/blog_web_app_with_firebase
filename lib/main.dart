@@ -4,7 +4,7 @@ import 'model/state_of_application.dart';
 
 import 'view/chat_app.dart';
 
-/// moving to first branch
+/// moving to second branch
 
 void main() {
   runApp(

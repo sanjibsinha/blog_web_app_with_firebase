@@ -50,36 +50,65 @@ class _LetUsChatState extends State<LetUsChat> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: TextFormField(
-                  controller: _controllerOne,
-                  decoration: const InputDecoration(
-                    hintText: 'title',
+              TextFormField(
+                controller: _controllerOne,
+                decoration: InputDecoration(
+                  hintText: 'Title',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(
+                      color: Colors.green,
+                      width: 1.0,
+                    ),
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Enter your message to continue';
-                    }
-                    return null;
-                  },
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: const BorderSide(
+                      color: Colors.purple,
+                      width: 2.0,
+                    ),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Enter your message to continue';
+                  }
+                  return null;
+                },
+              ),
+              Expanded(
+                child: SizedBox(
+                  height: 150.0,
+                  child: TextFormField(
+                    controller: _controllerTwo,
+                    maxLines: 10,
+                    decoration: InputDecoration(
+                      hintText: 'Body',
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: const BorderSide(
+                          color: Colors.green,
+                          width: 1.0,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: const BorderSide(
+                          color: Colors.purple,
+                          width: 2.0,
+                        ),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Enter your message to continue';
+                      }
+                      return null;
+                    },
+                  ),
                 ),
               ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: TextFormField(
-                  controller: _controllerTwo,
-                  decoration: const InputDecoration(
-                    hintText: 'Body',
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Enter your message to continue';
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 10.0),
               StyledButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
