@@ -41,7 +41,12 @@ class _LetUsChatState extends State<LetUsChat> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider Firebase Blog'),
+        title: Text(
+          'Provider Firebase Blog',
+          style: TextStyle(
+            color: Theme.of(context).appBarTheme.foregroundColor,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -56,8 +61,8 @@ class _LetUsChatState extends State<LetUsChat> {
                   hintText: 'Title',
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(
-                      color: Colors.green,
+                    borderSide: BorderSide(
+                      color: Theme.of(context).highlightColor,
                       width: 1.0,
                     ),
                   ),
@@ -86,8 +91,8 @@ class _LetUsChatState extends State<LetUsChat> {
                       hintText: 'Body',
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: const BorderSide(
-                          color: Colors.green,
+                        borderSide: BorderSide(
+                          color: Theme.of(context).highlightColor,
                           width: 1.0,
                         ),
                       ),

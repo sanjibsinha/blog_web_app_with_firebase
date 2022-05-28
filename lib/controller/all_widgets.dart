@@ -10,7 +10,10 @@ class Header extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Text(
           heading,
-          style: const TextStyle(fontSize: 24),
+          style: TextStyle(
+            fontSize: 24,
+            color: Theme.of(context).tabBarTheme.labelColor,
+          ),
         ),
       );
 }
@@ -25,7 +28,7 @@ class Paragraph extends StatelessWidget {
             style: GoogleFonts.loveYaLikeASister(
               fontSize: 25.0,
               fontWeight: FontWeight.bold,
-              color: Colors.red,
+              color: Theme.of(context).tabBarTheme.labelColor,
             )),
       );
 }

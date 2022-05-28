@@ -27,17 +27,17 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
+    apiKey: "****************************************",
+    appId: "*******************************************",
+    messagingSenderId: "***********",
+    projectId: "*********",
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
+    apiKey: "****************************************",
+    appId: "*******************************************",
+    messagingSenderId: "***********",
+    projectId: "*********",
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

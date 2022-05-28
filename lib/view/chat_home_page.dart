@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../controller/all_widgets.dart';
 import '../controller/authenticate_to_firebase.dart';
 import '../model/state_of_application.dart';
+
 import 'let_us_chat.dart';
 
 class ChatHomePage extends StatelessWidget {
@@ -14,7 +15,12 @@ class ChatHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider Firebase Blog'),
+        title: Text(
+          'Provider Firebase Blog',
+          style: TextStyle(
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          ),
+        ),
       ),
       body: ListView(
         children: <Widget>[
@@ -38,7 +44,8 @@ class ChatHomePage extends StatelessWidget {
             ),
           ),
           const Paragraph(
-              'Hi, I\'m Angel, I\'m Inviting you to write Blogs. Please join me.'),
+            'Hi, I\'m Angel, I\'m Inviting you to write Blogs. Please join me.',
+          ),
           const Divider(
             height: 8,
             thickness: 1,
@@ -73,8 +80,7 @@ class ChatHomePage extends StatelessWidget {
                       style: GoogleFonts.laila(
                         fontSize: 30.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.yellow,
-                        backgroundColor: Colors.red,
+                        color: Theme.of(context).cardTheme.color,
                       ),
                     ),
                   ),
