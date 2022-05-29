@@ -3,21 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:material_color_utilities/material_color_utilities.dart';
 
-class NoAnimationPageTransitionsBuilder extends PageTransitionsBuilder {
-  const NoAnimationPageTransitionsBuilder();
-
-  @override
-  Widget buildTransitions<T>(
-    PageRoute<T> route,
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  ) {
-    return child;
-  }
-}
-
 class ThemeSettingChange extends Notification {
   ThemeSettingChange({required this.settings});
   final ThemeSettings settings;
@@ -34,16 +19,6 @@ class ThemeProvider extends InheritedWidget {
   final ValueNotifier<ThemeSettings> settings;
   final ColorScheme? lightDynamic;
   final ColorScheme? darkDynamic;
-
-  final pageTransitionsTheme = const PageTransitionsTheme(
-    builders: <TargetPlatform, PageTransitionsBuilder>{
-      TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.linux: NoAnimationPageTransitionsBuilder(),
-      TargetPlatform.macOS: NoAnimationPageTransitionsBuilder(),
-      TargetPlatform.windows: NoAnimationPageTransitionsBuilder(),
-    },
-  );
 
   Color custom(CustomColor custom) {
     if (custom.blend) {
@@ -149,7 +124,7 @@ class ThemeProvider extends InheritedWidget {
   ThemeData light([Color? targetColor]) {
     final colorScheme = colors(Brightness.light, targetColor);
     return ThemeData.light().copyWith(
-      pageTransitionsTheme: pageTransitionsTheme,
+      //pageTransitionsTheme: pageTransitionsTheme,
       colorScheme: colorScheme,
       appBarTheme: appBarTheme(colorScheme),
       cardTheme: cardTheme(),
@@ -167,7 +142,6 @@ class ThemeProvider extends InheritedWidget {
   ThemeData dark([Color? targetColor]) {
     final colorScheme = colors(Brightness.dark, targetColor);
     return ThemeData.dark().copyWith(
-      pageTransitionsTheme: pageTransitionsTheme,
       colorScheme: colorScheme,
       appBarTheme: appBarTheme(colorScheme),
       cardTheme: cardTheme(),
