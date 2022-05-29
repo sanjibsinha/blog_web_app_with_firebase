@@ -16,17 +16,8 @@ class ChatApp extends StatelessWidget {
     return MaterialApp(
       title: 'Provider Firebase Blog',
       debugShowCheckedModeBanner: false,
-      theme: theme.light(settings.value.sourceColor),
+      theme: theme.dark(settings.value.sourceColor),
       home: const ChatHomePage(),
     );
   }
 }
-
-/**
- * MaterialApp(
-      title: 'Provider Firebase Blog',
-      debugShowCheckedModeBanner: false,
-      home: ChatHomePage(),
-    );
- * 
- */
