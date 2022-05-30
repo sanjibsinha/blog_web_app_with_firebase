@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:blog_web_app_with_firebase/view/all_blogs.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -131,22 +132,26 @@ class _LetUsChatState extends State<LetUsChat> {
                   ],
                 ),
               ),
-              for (var message in widget.messages)
-                GestureDetector(
-                  onTap: () {
+              const SizedBox(
+                height: 20.0,
+              ),
+              TextButton(
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BlogDetailScreen(
-                          name: message.name,
-                          title: message.title,
-                          body: message.body,
-                        ),
+                        builder: (context) =>
+                            AllBlogs(messages: widget.messages),
                       ),
                     );
                   },
-                  child: Paragraph('${message.name}: ${message.title}'),
-                ),
+                  child: Text(
+                    'All Titles',
+                    style: GoogleFonts.aBeeZee(
+                      fontSize: 60.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
             ],
           ),
         ),
@@ -155,112 +160,3 @@ class _LetUsChatState extends State<LetUsChat> {
   }
 } // LetUsChat state ends
 
-class BlogDetailScreen extends StatelessWidget {
-  // static const routename = '/product-detail';
-
-  const BlogDetailScreen({
-    Key? key,
-    required this.name,
-    required this.title,
-    required this.body,
-  }) : super(key: key);
-  final String name;
-  final String title;
-  final String body;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
-      ),
-      body: SingleChildScrollView(
-        child: Consumer<StateOfApplication>(
-          builder: (context, appState, _) => Column(
-            children: <Widget>[
-              if (appState.loginState == UserStatus.loggedIn) ...[
-                SizedBox(
-                  height: 300,
-                  width: double.infinity,
-                  child: Image.network(
-                    'https://cdn.pixabay.com/photo/2018/03/24/00/36/girl-3255402_960_720.png',
-                    width: 250,
-                    height: 250,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  title,
-                  style: GoogleFonts.aBeeZee(
-                    fontSize: 60.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.yellow,
-                    backgroundColor: Colors.red,
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  width: double.infinity,
-                  child: Text(
-                    body,
-                    textAlign: TextAlign.center,
-                    softWrap: true,
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black26,
-                      backgroundColor: Colors.lightBlue[300],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/**
- Consumer<StateOfApplication>(
-            builder: (context, appState, _) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (appState.loginState == UserStatus.loggedIn) ...[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LetUsChat(
-                            addMessageOne: (title, body) =>
-                                appState.addMessageToChatBook(title, body),
-                            messages: appState.chatBookMessages,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      'Let\'s Blog',
-                      style: GoogleFonts.laila(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.yellow,
-                        backgroundColor: Colors.red,
-                      ),
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
-  
- */
